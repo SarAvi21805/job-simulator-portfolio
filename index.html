@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saraí | Emotional Console Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="console-container">
+        <!-- Pantalla de visualización -->
+        <header class="main-screen">
+            <h1 id="emotion-title">Selecciona un Recuerdo</h1>
+            <p id="emotion-description">Explora mi trayectoria a través de mis emociones y proyectos.</p>
+        </header>
+
+        <!-- Contenedor de Proyectos (Memories) -->
+        <main id="project-display" class="grid-projects">
+            <!-- Proyectos cargados con JS -->
+        </main>
+
+        <!-- Panel de botones (Esferas de Emociones) -->
+        <nav class="control-panel">
+            <button class="sphere joy" onclick="filterEmotion('joy')"></button>
+            <button class="sphere sadness" onclick="filterEmotion('sadness')"></button>
+            <button class="sphere fear" onclick="filterEmotion('fear')"></button>
+            <button class="sphere disgust" onclick="filterEmotion('disgust')"></button>
+        </nav>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

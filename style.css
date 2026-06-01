@@ -1,0 +1,67 @@
+:root {
+    --joy: #f9d71c;
+    --sadness: #0047ab;
+    --fear: #9b59b6;
+    --disgust: #27ae60;
+    --console-bg: #1a1a2e;
+}
+
+body {
+    background-color: var(--console-bg);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.console-container {
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.sphere {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    filter: blur(1px);
+}
+
+.sphere:hover {
+    transform: scale(1.2);
+    filter: blur(0px);
+}
+
+.joy { background: radial-gradient(circle, var(--joy), #f39c12); box-shadow: 0 0 15px var(--joy); }
+.sadness { background: radial-gradient(circle, var(--sadness), #2980b9); box-shadow: 0 0 15px var(--sadness); }
+.fear { background: radial-gradient(circle, var(--fear), #8e44ad); box-shadow: 0 0 15px var(--fear); }
+.disgust { background: radial-gradient(circle, var(--disgust), #2ecc71); box-shadow: 0 0 15px var(--disgust); }
+
+.grid-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    min-height: 300px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
