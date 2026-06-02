@@ -152,7 +152,19 @@ body {
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     animation: fadeIn 0.5s ease-in;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
 }
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15); /* Sombra blanca sutil */
+}
+
+/* Bordes de colores para emociones */
+.border-joy { border-bottom: 4px solid #f1c40f; }
+.border-sadness { border-bottom: 4px solid #3498db; }
+.border-fear { border-bottom: 4px solid #9b59b6; }
+.border-disgust { border-bottom: 4px solid #2ecc71; }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
@@ -186,7 +198,8 @@ body {
 
 /* Estilo Isla (Personalidad) */
 .island-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 50% 50% 10px 10px;
     padding: 30px;
     border-top: 4px solid var(--joy);
@@ -212,3 +225,44 @@ body {
     width: 10px; height: 10px; background: #9b59b6; border-radius: 50%;
     box-shadow: 0 0 10px #9b59b6;
 }
+
+.memory-link {
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+.memory-link:hover {
+    background: white;
+    color: black !important;
+}
+
+/* Botones de Contacto Coloridos */
+.contact-grid {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-contact {
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    transition: 0.3s;
+}
+
+.joy-btn { background: #f1c40f; color: black; }
+.fear-btn { background: #9b59b6; }
+.sadness-btn { background: #3498db; }
+
+.btn-contact:hover { transform: scale(1.1); filter: brightness(1.2); }
