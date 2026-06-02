@@ -10,8 +10,12 @@
     <div class="console-container">
         <!-- Pantalla de visualización -->
         <header class="main-screen">
-            <h1 id="emotion-title">Selecciona un Recuerdo</h1>
-            <p id="emotion-description">Explora mi trayectoria a través de mis emociones y proyectos.</p>
+            <div id="avatar-container">
+                <img src="avatar.png" alt="Avatar de Saraí" id="avatar">
+                <div class="avatar-glow"></div>
+            </div>
+            <h1 id="emotion-title">Bienvenidos al Cuartel Central</h1>
+            <p id="emotion-description">Soy Saraí, desarrolladora de software. Selecciona un pensamiento para empezar.</p>
         </header>
 
         <!-- Contenedor de Proyectos (Memories) -->
@@ -19,12 +23,23 @@
             <!-- Proyectos cargados con JS -->
         </main>
 
-        <!-- Panel de botones (Esferas de Emociones) -->
+        <!-- Panel de Control Extendido -->
         <nav class="control-panel">
-            <button class="sphere joy" onclick="filterEmotion('joy')"></button>
-            <button class="sphere sadness" onclick="filterEmotion('sadness')"></button>
-            <button class="sphere fear" onclick="filterEmotion('fear')"></button>
-            <button class="sphere disgust" onclick="filterEmotion('disgust')"></button>
+            <div class="sphere-group">
+                <small>Recuerdos (Proyectos)</small>
+                <div class="buttons">
+                    <button class="sphere joy" onclick="filterEmotion('joy')"></button>
+                    <button class="sphere sadness" onclick="filterEmotion('sadness')"></button>
+                    <button class="sphere fear" onclick="filterEmotion('fear')"></button>
+                    <button class="sphere disgust" onclick="filterEmotion('disgust')"></button>
+                </div>
+            </div>
+
+            <div class="nav-links">
+                <button class="nav-btn" onclick="showAbout()">Isla de Personalidad</button>
+                <button class="nav-btn" onclick="showSkills()">Manual de Sistemas</button>
+                <button class="nav-btn" onclick="showContact()">Conexión</button>
+            </div>
         </nav>
     </div>
     <script src="script.js"></script>
