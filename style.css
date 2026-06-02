@@ -158,3 +158,57 @@ body {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* Efecto de Partículas */
+@keyframes float {
+    0% { transform: translateY(0px) translateX(0px); opacity: 0.5; }
+    50% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+    100% { transform: translateY(0px) translateX(0px); opacity: 0.5; }
+}
+
+.particle {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: float 5s infinite ease-in-out;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Pantalla de inicio */
+#overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, #1a1a2e, #000);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000; cursor: pointer; transition: 1s;
+}
+
+/* Estilo Isla (Personalidad) */
+.island-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50% 50% 10px 10px;
+    padding: 30px;
+    border-top: 4px solid var(--joy);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    animation: floatingIsland 3s infinite ease-in-out;
+}
+
+@keyframes floatingIsland {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Sistema de Creencias (Conexión) */
+.belief-line {
+    border-left: 2px dashed rgba(155, 89, 182, 0.5);
+    margin-left: 20px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.belief-line::before {
+    content: ''; position: absolute; left: -6px; top: 10px;
+    width: 10px; height: 10px; background: #9b59b6; border-radius: 50%;
+    box-shadow: 0 0 10px #9b59b6;
+}
