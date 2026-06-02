@@ -18,10 +18,27 @@
             <p id="emotion-description">Soy Saraí, desarrolladora de software. Selecciona un pensamiento para empezar.</p>
         </header>
 
+        <!-- Botón de Inicio -->
+        <div id="overlay" onclick="startConsole()">
+            <div class="start-msg">
+                <div class="glow-orb"></div>
+                <h1>ENCENDER CONSOLA MENTAL</h1>
+                <p>Haz clic para iniciar sistema</p>
+            </div>
+        </div>
+
+        <!-- Audio -->
+        <audio id="welcome-audio">
+            <source src="https://github.com/BrianS-24/Job-Simulator-Assets/raw/main/bienvenidos.mp3" type="audio/mpeg">
+        </audio>
+
         <!-- Contenedor de Proyectos (Memories) -->
-        <main id="project-display" class="grid-projects">
-            <!-- Proyectos cargados con JS -->
+        <main id="content-display" class="grid-projects">
+            <!-- Aquí se inyectará la magia -->
         </main>
+
+        <!-- Partículas de fondo -->
+        <div id="particles-js"></div>
 
         <!-- Panel de Control Extendido -->
         <nav class="control-panel">
