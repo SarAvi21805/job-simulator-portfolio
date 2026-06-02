@@ -11,10 +11,10 @@
         <!-- Pantalla de visualización -->
         <header class="main-screen">
             <div id="avatar-container">
-                <img src="avatar.png" alt="Avatar de Saraí" id="avatar">
+                <img src="avatar.png" alt="Avatar de Saraí" id="avatar"> <!-- Falta imagen de avatar -->
                 <div class="avatar-glow"></div>
             </div>
-            <h1 id="emotion-title">Bienvenidos al Cuartel Central</h1>
+            <h1 id="emotion-title">Bienvenidos al Cuartel General</h1>
             <p id="emotion-description">Soy Saraí, desarrolladora de software. Selecciona un pensamiento para empezar.</p>
         </header>
 
@@ -43,5 +43,12 @@
         </nav>
     </div>
     <script src="script.js"></script>
+
+    <div class="music-player">
+        <button id="music-toggle" onclick="toggleMusic()">🎵 Play BGM</button>
+        <audio id="bgm" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"> <!-- Reemplaza con tu música de fondo -->
+        </audio>
+    </div>
 </body>
 </html>
