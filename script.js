@@ -68,7 +68,7 @@ function showAbout() {
     const display = document.getElementById('content-display');
     title.innerText = "Archipiélago de Personalidad";
     desc.innerText = "Los pilares que sostienen mi mundo.";
-    display.className = 'grid-projects'; // Usamos grid para ver varias islas
+    display.className = 'grid-projects';
     display.innerHTML = `
         <p>¡Hola! Soy Saraí, una desarrolladora que mezcla la lógica del código con la estética del K-pop y la sensibilidad de Inside Out.</p>
         <p><strong>Dato Curioso:</strong> Programo mejor escuchando K-OST (bandas sonoras de dramas).</p>
@@ -160,7 +160,7 @@ function startConsole() {
     createParticles();
 }
 
-// 5. Apagar Consola
+// Apagar Consola
 function sleepMode() {
     magicFlash('#000');
     setTimeout(() => {
@@ -188,23 +188,75 @@ function createParticles() {
     }
 }
 
-// Destello mágico de color
-function magicFlash(color) {
+// Destello más largo y con estado emocional
+function magicFlash(color, emotionName) {
     const flash = document.createElement('div');
-    flash.style.position = 'fixed';
-    flash.style.top = '0';
-    flash.style.left = '0';
-    flash.style.width = '100%';
-    flash.style.height = '100%';
-    flash.style.backgroundColor = color;
-    flash.style.opacity = '0.3';
-    flash.style.zIndex = '999';
-    flash.style.pointerEvents = 'none';
-    flash.style.transition = 'opacity 0.8s ease';
+    flash.style.cssText = `position:fixed; top:0; left:0; width:100%; height:100%; background:${color}; opacity:0.2; z-index:999; pointer-events:none; transition: opacity 1.5s ease;`;
     document.body.appendChild(flash);
     
+    // Cambiar estado en la barra superior
+    document.getElementById('emotional-state').innerText = `Estado: ${emotionName}`;
+    
+    // Activar personaje
+    document.querySelectorAll('.char-sprite').forEach(c => c.classList.remove('char-active'));
+    const charId = { joy: 'char-joy', sadness: 'char-sadness', fear: 'char-fear', disgust: 'char-disgust' };
+    if(charId[emotionName.toLowerCase()]) document.getElementById(charId[emotionName.toLowerCase()]).classList.add('char-active');
+
     setTimeout(() => {
         flash.style.opacity = '0';
-        setTimeout(() => flash.remove(), 800);
-    }, 100);
+        setTimeout(() => flash.remove(), 1500);
+    }, 500); // El destello dura más ahora
 }
+
+// Función de Proyectos con Botones
+function filterEmotion(emotion) {
+    const emotionalNames = { joy: "Alegría", sadness: "Tristeza", fear: "Miedo", disgust: "Desagrado" };
+    const colors = { joy: "#f1c40f", sadness: "#3498db", fear: "#9b59b6", disgust: "#2ecc71" };
+    
+    magicFlash(colors[emotion], emotionalNames[emotion]);
+    changeAmbiance(emotion);
+
+    const display = document.getElementById('content-display');
+    display.className = 'grid-projects';
+    display.innerHTML = ''; 
+
+    title.innerText = "Recuerdos Esenciales";
+    desc.innerText = `Nivel de ${emotionalNames[emotion]}: Máximo.`;
+
+    projects.filter(p => p.emotion === emotion).forEach(p => {
+        const card = document.createElement('div');
+        card.className = `project-card border-${emotion}`;
+        // Color de sombra según emoción
+        card.style.boxShadow = `0 5px 15px ${colors[emotion]}33`;
+        card.innerHTML = `
+            <h3>${p.name}</h3>
+            <p>${p.tech}</p>
+            <a href="${p.link}" target="_blank" class="btn-memory">ABRIR MEMORIA</a>
+        `;
+        display.appendChild(card);
+    });
+}
+
+
+// Actualizar Reloj
+function updateClock() {
+    const now = new Date();
+    document.getElementById('current-time').innerText = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+}
+setInterval(updateClock, 1000);
+
+// Mostrar Frases Aleatorias
+const quotes = [
+    "“Llévala a la luna por mí, ¿de acuerdo?” — Bing Bong",
+    "“La vida no solo tiene colores brillantes, y eso está bien”",
+    "“Believe in your own galaxy” — BTS",
+    "“Even the stars look like they're crying” — K-Drama vibe"
+];
+
+function showRandomQuote() {
+    const footer = document.createElement('div');
+    footer.className = 'quote-footer';
+    footer.innerText = quotes[Math.floor(Math.random() * quotes.length)];
+    document.body.appendChild(footer);
+}
+window.onload = () => { showRandomQuote(); updateClock(); };
