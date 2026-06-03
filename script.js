@@ -47,13 +47,14 @@ function filterEmotion(emotion) {
 
     projects.filter(p => p.emotion === emotion).forEach(p => {
         const card = document.createElement('div');
-        card.className = 'project-card';
+        card.className = `project-card border-${emotion}`;
         // Agregamos una clase según la emoción para el borde
+        card.style.boxShadow = `0 5px 15px ${colors[emotion]}33`;
         card.classList.add(`border-${emotion}`);
         card.innerHTML = `
             <h3>${p.name}</h3>
             <p>${p.tech}</p>
-            <a href="${p.link}" target="_blank" class="memory-link">Abrir Memoria</a>
+            <a href="${p.link}" target="_blank" class="btn-memory">Abrir Memoria</a>
         `;
         display.appendChild(card);
     });
