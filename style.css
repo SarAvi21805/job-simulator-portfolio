@@ -332,3 +332,19 @@ body {
     transition: 0.3s;
 }
 .btn-memory:hover { background: white; color: black !important; }
+
+/* Ajuste para el avatar */
+#avatar-container img, .main-screen img { 
+    width: 180px; 
+    height: 250px;
+    object-fit: fill;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+#avatar-container img:hover {
+    transform: scale(1.05); /* Efecto sutil al pasar el mouse */
+}
