@@ -336,7 +336,7 @@ body {
 /* Ajuste para el avatar */
 #avatar-container img, .main-screen img { 
     width: 180px; 
-    height: 250px;
+    height: 200px;
     object-fit: fill;
     border-radius: 50%;
     border: 3px solid rgba(255, 255, 255, 0.2);
