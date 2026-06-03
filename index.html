@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Barra de estado --> 
+    <div class="status-bar">
+        <div class="status-left">
+            <span id="system-status">● Sistema: Activo</span>
+            <span class="separator">|</span>
+            <span id="emotional-state">Estado: Estable</span>
+        </div>
+        <div class="status-right">
+            <span id="current-time">00:00 AM</span>
+            <button class="power-btn" onclick="sleepMode()" title="Apagar Mente">⏻</button>
+        </div>
+    </div>
+
     <div class="console-container">
         <!-- Pantalla de visualización -->
         <header class="main-screen">
@@ -39,6 +52,13 @@
 
         <!-- Partículas de fondo -->
         <div id="particles-js"></div>
+
+        <div class="character-container">
+            <img src="https://raw.githubusercontent.com/BrianS-24/Job-Simulator-Assets/main/alegria.png" id="char-joy" class="char-sprite" alt="Alegría">
+            <img src="https://raw.githubusercontent.com/BrianS-24/Job-Simulator-Assets/main/tristeza.png" id="char-sadness" class="char-sprite" alt="Tristeza">
+            <img src="https://raw.githubusercontent.com/BrianS-24/Job-Simulator-Assets/main/furia.png" id="char-disgust" class="char-sprite" alt="Desagrado">
+            <img src="https://raw.githubusercontent.com/BrianS-24/Job-Simulator-Assets/main/miedo.png" id="char-fear" class="char-sprite" alt="Miedo">
+        </div>
 
         <!-- Panel de Control Extendido -->
         <nav class="control-panel">
